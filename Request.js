@@ -29,11 +29,12 @@ return {
 		},
 
 		get: function (url) {
-			var def = new djDeferred();
+			var xhr, def = new djDeferred( (reason) => { xhr.cancel(); } );
 			var options = this._options(arguments[1]);
 			options.method = 'GET';
 
-			djXhr(url, options).then(function (r) {
+			xhr = djXhr(url, options);
+      xhr.then(function (r) {
 				def.resolve(r);
 			});
 
@@ -41,11 +42,12 @@ return {
 		},
 
 		post: function (url) {
-			var def = new djDeferred();
+			var xhr, def = new djDeferred( (reason) => { xhr.cancel(); } );
 			var options = this._options(arguments[1]);
 			options.method = 'POST';
 
-			djXhr(url, options).then( function (r) {
+			xhr = djXhr(url, options);
+      xhr.then( function (r) {
 				def.resolve(r);
 			});
 
@@ -53,11 +55,12 @@ return {
 		},
 
 		put: function (url) {
-			var def = new djDeferred();
+			var xhr, def = new djDeferred( (reason) => { xhr.cancel(); } );
 			var options = this._options(arguments[1]);
 			options.method = 'PUT';
-
-			djXhr(url, options).then( function (r) {
+			
+			xhr = djXhr(url, options);
+      xhr.then( function (r) {
 				def.resolve(r);	
 			});
 
@@ -65,11 +68,12 @@ return {
 		},
 
 		del: function (url) {
-			var def = new djDeferred();
+			var xhr, def = new djDeferred( (reason) => { xhr.cancel(); } );
 			var options = this._options(arguments[1]);
 			options.method = 'DELETE';
 
-			djXhr(url, options).then( function (r) {
+			xhr = djXhr(url, options);
+      xhr.then( function (r) {
 				def.resolve(r);
 			});
 
@@ -77,8 +81,7 @@ return {
 		},
 
 		head: function(url) {
-			var xhr = new XMLHttpRequest();
-			var def = new djDeferred();
+			var xhr = new XMLHttpRequest(), def = new djDeferred((reason) => { xhr.abort(); });
 
 			window.setTimeout( function () {
 				xhr.onreadystatechange = function (event) {
