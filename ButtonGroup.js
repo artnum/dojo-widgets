@@ -26,6 +26,7 @@ define([
     baseClass: 'artnumButtonGroup',
 
     constructor: function () {
+      this.moveNodeTop = false
       this.domNode = document.createElement('DIV')
       this.domNode.setAttribute('class', this.baseClass)
 
@@ -35,6 +36,12 @@ define([
 
       this.Input = input
       this.domNode.appendChild(input)
+
+      if (arguments[0]) {
+        if (arguments[0].moveNode) {
+          this.moveNodeTop = true
+        }
+      }
     },
     _setNameAttr: function (name) {
       this.Input.setAttribute('name', name)
@@ -64,6 +71,14 @@ define([
       var btn = dtRegistry.getEnclosingWidget(event.target)
       this.set('value', btn.get('value'))
       this.emit('change', btn.get('value'))
+
+      if (this.moveNodeTop) {
+        window.requestAnimationFrame(function () {
+          var pNode = btn.domNode.parentNode
+          pNode.removeChild(btn.domNode)
+          pNode.insertBefore(btn.domNode, pNode.firstChild)
+        })
+      }
     },
     removeValue: function (value) {
       var btn = dtRegistry.findWidgets(this.domNode).find(function (e, idx, arr) {
