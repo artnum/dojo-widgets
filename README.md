@@ -16,3 +16,8 @@ In your HTML document
     </script>
     <script src="//ajax.googleapis.com/ajax/libs/dojo/1.13.0/dojo/dojo.js"></script>
 ```
+
+See Also
+--------
+
+JS Library -> https://github.com/artnum/js
