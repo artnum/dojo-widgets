@@ -65,7 +65,7 @@ define([
           }
         }
       }
-      return intValue
+      return intValue * 60
     }
   })
 })
