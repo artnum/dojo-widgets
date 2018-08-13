@@ -46,6 +46,15 @@ define([
     _setNameAttr: function (name) {
       this.Input.setAttribute('name', name)
     },
+    _getLabelAttr: function () {
+      var btns = dtRegistry.findWidgets(this.domNode)
+      for (var i = 0; i < btns.length; i++) {
+        if (btns[i].get('selected')) {
+          return btns[i].get('label')
+        }
+      }
+      return null
+    },
     _getValueAttr: function () {
       var btns = dtRegistry.findWidgets(this.domNode)
       for (var i = 0; i < btns.length; i++) {
