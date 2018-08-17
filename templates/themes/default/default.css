@@ -38,6 +38,11 @@
 	background-color: #333 !important;	
 }
 
+.artnumButton.tool span:before {
+	font-family: "FontAwesome";
+	content: "\f0ad\0020";
+}
+
 .artnumButton.project span:before {
 	font-family: "FontAwesome";
 	content: "\f006\0020";
