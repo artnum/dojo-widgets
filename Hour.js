@@ -66,6 +66,9 @@ define([
         }
       }
       return intValue * 60
+    },
+    focus: function () {
+      this.nValue.focus()
     }
   })
 })
