@@ -24,6 +24,14 @@ define([
       this.nValue.setAttribute('name', name)
     },
 
+    _setValueAttr: function (value) {
+      if (value) {
+
+      } else {
+        this.nValue.value = ''
+      }
+    },
+
     _getValueAttr: function () {
       var intValue = 0
       if (!this.nValue) { return intValue }
