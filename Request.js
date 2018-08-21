@@ -1,10 +1,12 @@
 /* eslint-env browser, amd */
 define([
   'dojo/_base/lang',
+  'dojo/_base/declare',
   'dojo/Deferred',
   'dojo/request/xhr'
 ], function (
   djLang,
+  djDeclare,
   DjDeferred,
   djXhr
 ) {

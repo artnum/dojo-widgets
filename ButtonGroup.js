@@ -8,7 +8,7 @@ define([
 
   'dijit/registry',
 
-  'artnum/Button'
+  'artnum/dojo/Button'
 ], function (
   djDeclare,
   djEvented,

@@ -1,3 +1,5 @@
+The repository has been merge within artnum/js, please use this one instead
+
 Dojo Widget
 ===========
 

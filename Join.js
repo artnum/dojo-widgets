@@ -1,7 +1,7 @@
 /* eslint-env browser,amd */
 define([
   'dojo/_base/declare', 'dojo/_base/lang', 'dojo/Deferred', 'dojo/promise/all',
-  'artnum/Request'
+  'artnum/dojo/Request'
 
 ], function (
   djDeclare, djLang, DjDeferred, djAll,
